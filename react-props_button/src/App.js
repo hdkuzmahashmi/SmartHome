@@ -7,7 +7,10 @@ export default function App() {
 
 function Button({ color, disabled, text }) {
   return (
-    <button disabled={disabled} style={{ color: color }}>
+    <button
+      disabled={disabled}
+      style={{ color: color, backgroundColor: "black" }}
+    >
       {text}
     </button>
   );

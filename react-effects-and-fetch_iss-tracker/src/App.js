@@ -10,32 +10,30 @@ export default function App() {
     longitude: 0,
     latitude: 0,
   });
-  let nIntervId;
+
   useEffect(() => {
-    setInterval(getISSCoords, 5000);
+    async function getISSCoords() {
+      try {
+        const response = await fetch(URL);
+        const data = await response.json();
+        console.log(data);
+        setCoords({ latitude: data.latitude, longitude: data.longitude });
+      } catch (error) {
+        console.log(error);
+      }
+    }
+
+    const interval = setInterval(getISSCoords, 5000);
+    return () => clearInterval(interval);
   }, []);
 
-  //if (!nIntervId) {
-  //nIntervId = setInterval(getISSCoords, 5000);
-  //}
-
-  async function getISSCoords() {
-    try {
-      const response = await fetch(URL);
-      const data = await response.json();
-      console.log(data);
-      setCoords({ latitude: data.latitude, longitude: data.latitude });
-    } catch (error) {
-      console.log(error);
-    }
-  }
   return (
     <main>
       <Map longitude={coords.longitude} latitude={coords.latitude} />
       <Controls
         longitude={coords.longitude}
         latitude={coords.latitude}
-        onRefresh={getISSCoords}
+        onRefresh={useEffect.getISSCoords}
       />
     </main>
   );

@@ -39,13 +39,11 @@ const initialEntries = [
     isFavorite: true,
   },
 ];
-const favoriteEntries = initialEntries.filter(
-  (entry) => entry.isFavorite === true
-);
 
 function App() {
   const [entries, setEntries] = useState(initialEntries);
   const [filter, setFilter] = useState("all");
+  const favoriteEntries = entries.filter((entry) => entry.isFavorite === true);
 
   function handleAddEntry(newEntry) {
     const date = new Date().toLocaleDateString("en-us", {

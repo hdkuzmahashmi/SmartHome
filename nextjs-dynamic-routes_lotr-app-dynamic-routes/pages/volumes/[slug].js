@@ -7,31 +7,17 @@ export default function VolumeDetail() {
   const router = useRouter();
   const { slug } = router.query;
 
-  //   const volumeIndex = volumes.findIndex(({ slug }) => slug === slugg);
+  const volumeIndex = volumes.findIndex((volume) => volume.slug == slug);
 
-  //   const volume = volumes[volumeIndex];
-  //   const nextVolume = volumes[volumeIndex + 1];
-  //   const previousVolume = volumes[volumeIndex - 1];
-  //   console.log("nextvolume", nextVolume);
-  //   console.log("previousVolume", previousVolume);
+  const volume = volumes[volumeIndex];
+  const nextVolume = volumes[volumeIndex + 1];
+  const previousVolume = volumes[volumeIndex - 1];
 
-  const currentVolume = volumes.find((volume) => volume.slug === slug);
-
-  if (!currentVolume) {
+  if (!volume) {
     return null;
   }
 
-  const { title, description, cover, books } = currentVolume;
-
-  function getRandomElement(array) {
-    return array[Math.floor(Math.random() * array.length)];
-  }
-
-  function handelRandomVolume() {
-    const randomVolume = getRandomElement(volumes);
-
-    router.push(`/volumes/${randomVolume.slug}`);
-  }
+  const { title, description, cover, books } = volume;
 
   return (
     <>
@@ -52,7 +38,7 @@ export default function VolumeDetail() {
         width={140}
         height={230}
       />
-      {/* {previousVolume ? (
+      {previousVolume ? (
         <div>
           <Link href={`/volumes/${previousVolume.slug}`}>
             ← Previous Volume: {previousVolume.title}
@@ -66,13 +52,6 @@ export default function VolumeDetail() {
           </Link>
         </div>
       ) : null}
-*/}
-      {
-        <button type="button" onClick={handelRandomVolume}>
-          {" "}
-          Random Volume
-        </button>
-      }
     </>
   );
 }

@@ -28,6 +28,9 @@ const onlyCardWithIdTwo = cards.filter((card) => {
 });
 console.log(onlyCardWithIdTwo);
 
+const onlycardwithidone = cards.filter((card) => card.id == 1);
+console.log("onlycardwithidone", onlycardwithidone);
+
 const allCardsWith3Tags = cards.filter((card) => {
   return card.tags.length == 3;
 });
@@ -42,8 +45,8 @@ console.log(allCardsThatAreNotBookmarked);
 const allCardsWithTagsHTMLOrJSThatAreBookmarked = cards.filter((card) => {
   return card.tags.includes("js", "html") && card.isBookmarked == true;
 });
-
 console.log(allCardsWithTagsHTMLOrJSThatAreBookmarked);
+
 export {
   onlyCardWithIdTwo,
   allCardsWith3Tags,

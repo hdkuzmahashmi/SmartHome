@@ -29,6 +29,12 @@ const lowerCaseAnswers = cards.map((card) => {
   return card.answer.toUpperCase();
 });
 
+// const uppercaseAnswer = cards.map((card) => {
+//   return card.answer.toUpperCase();
+// });
+
+// console.log("uppercaseAnswer", uppercaseAnswer);
+
 console.log(lowerCaseAnswers);
 
 // ["How often can I use <header>? - As often as you like.", ...]

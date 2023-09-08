@@ -82,6 +82,11 @@ const firstAnimalStartingWithLetterG = animals.find((animal) =>
   animal.name.startsWith("g")
 );
 
+// practice again these methods again
+
+const firstanimal = animals.find((animal) => animal.name.startsWith("g"));
+console.log("firstanimal", firstanimal);
+
 const indexOfAnimalWithNameLongerFive = animals.findIndex(
   (animal) => animal.name.length > 5
 );
@@ -112,6 +117,10 @@ const animalsSortedByWeightReversed = animals
 
 const animalWithWeightMoreThanFivehundredExists = animals.some(
   (animal) => animal.weight > 500
+);
+console.log(
+  "animalWithWeightMoreThanFivehundredExists",
+  animalWithWeightMoreThanFivehundredExists
 );
 
 // Hint: Filter for Europe first, then check every animal for its weight.

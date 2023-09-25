@@ -2,7 +2,6 @@ import ProductList from "../components/ProductList";
 import styled from "styled-components";
 import ProductForm from "../components/ProductForm";
 import useSWR from "swr";
-//import { useRouter } from "next/router";
 
 const Heading = styled.h1`
   text-align: center;
@@ -11,9 +10,6 @@ const Heading = styled.h1`
 
 export default function HomePage() {
   const { mutate } = useSWR("/api/products");
-
-  //const router = useRouter();
-  //const { id } = router.query;
 
   async function handleAddProduct(event) {
     console.log("submit");
@@ -47,7 +43,7 @@ export default function HomePage() {
         </span>
         Fish Shop
       </Heading>
-      <ProductForm onSubmit={handleAddProduct} isEditMode={true} />
+      <ProductForm onSubmit={handleAddProduct} isEditMode={false} />
       <hr />
       <ProductList />
     </>
